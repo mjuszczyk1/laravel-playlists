@@ -1,0 +1,250 @@
+//colors
+$white: #fff;
+$color_lochmara: #0e83cd;
+$black_50: rgba(0, 0, 0, 0.5);
+$color_turquoise: #2ad2c9;
+$black: #000;
+$color_pirate_gold: #cc8400;
+%extend_1 {
+    display: inline-block;
+    opacity: 0;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.btn-1d {
+    overflow: hidden;
+    &:hover {
+        color: $color_lochmara;
+    }
+    &:active {
+        color: $color_lochmara;
+    }
+    &:hover::after {
+        width: 90%;
+        opacity: 1;
+    }
+    &:active::after {
+        width: 101%;
+        opacity: 1;
+    }
+}
+
+.btn-1d::after {
+    width: 0;
+    height: 103%;
+    top: 50%;
+    left: 50%;
+    background: $white;
+    opacity: 0;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: translateX(-50%) translateY(-50%);
+}
+
+hr {
+    margin: 50px 0 0;
+}
+
+ul {
+    &.unstyled {
+        list-style: none;
+        padding-left: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+    &.inline li {
+        display: inline;
+    }
+}
+
+.no-marg {
+    margin: 0;
+}
+
+.no-top-marg {
+    margin-top: 0;
+}
+
+.no-bottom-marg {
+    margin-bottom: 0;
+}
+
+.text-container {
+    background: $black_50;
+    color: $white;
+}
+
+.main-header {
+    margin: 50px 0 15px;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-thin {
+    font-weight: 300;
+}
+
+@media(min-width: 992px) {
+    body.home #main-content #about > div:last-child {
+        padding-right: 0;
+    }
+}
+
+footer {
+    background: $black;
+    color: $white;
+    padding: 25px 0;
+    margin-top: 50px;
+}
+
+.home {
+    #lead-image {
+        padding-top: 50px;
+        position: relative;
+        .row {
+            background: url(../img/mic.jpg) no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            #lead-text {
+                position: absolute;
+                left: 25%;
+                bottom: 50%;
+                width: 50%;
+                text-align: center;
+                h1 {
+                    margin: 15px 0;
+                }
+                ul.inline {
+                    border-top: 1px solid $white;
+                    padding: 5px 0;
+                    margin: 0;
+                    li {
+                        padding: 5px 15px;
+                        font-size: 16px;
+                        a {
+                            font-weight: 700;
+                            color: $color_turquoise;
+                            &:hover::before {
+                                opacity: 1;
+                                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                                transform: translateX(0px);
+                            }
+                            &:focus::before {
+                                opacity: 1;
+                                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                                transform: translateX(0px);
+                            }
+                            &:hover::after {
+                                opacity: 1;
+                                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                                transform: translateX(0px);
+                            }
+                            &:focus::after {
+                                opacity: 1;
+                                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                                transform: translateX(0px);
+                            }
+                        }
+                        a::before {
+                            @extend %extend_1;
+                            margin-right: 10px;
+                            content: '[';
+                            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                            transform: translateX(20px);
+                        }
+                        a::after {
+                            @extend %extend_1;
+                            margin-left: 10px;
+                            content: ']';
+                            //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                            transform: translateX(-20px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #main-content {
+        #about > div:last-child img {
+            width: auto;
+        }
+        #who .row:last-child img {
+            max-width: 100%;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 999px;
+            margin-bottom: 10px;
+        }
+        #get .row {
+            .btn {
+                border: none;
+                font-family: inherit;
+                font-size: inherit;
+                color: inherit;
+                background: none;
+                cursor: pointer;
+                padding: 25px 80px;
+                display: inline-block;
+                margin: 15px 30px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 700;
+                outline: none;
+                position: relative;
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                transition: all 0.3s;
+            }
+            .btn::after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                transition: all 0.3s;
+            }
+            .btn-1 {
+                border: 3px solid $black;
+                color: $black;
+            }
+            .btn-1d {
+                overflow: hidden;
+                a {
+                    color: $color_pirate_gold;
+                }
+                &:hover::after {
+                    width: 90%;
+                    opacity: 1;
+                }
+                &:active::after {
+                    width: 101%;
+                    opacity: 1;
+                }
+                &:hover a {
+                    color: $color_turquoise;
+                }
+                &:active a {
+                    color: $color_turquoise;
+                }
+            }
+            .btn-1d::after {
+                position: absolute;
+                z-index: -1;
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                transition: all 0.3s;
+                width: 0;
+                height: 103%;
+                top: 50%;
+                left: 50%;
+                background: $black;
+                opacity: 0;
+                //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+    }
+}
+
+nav.navbar {
+    font-size: 21px;
+}
