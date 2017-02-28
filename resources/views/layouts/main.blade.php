@@ -28,6 +28,8 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.1.1.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

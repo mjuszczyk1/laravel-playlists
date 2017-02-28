@@ -4,7 +4,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-require('./bootstrap.min');
+// require('./jquery-3.1.1.js');
+// require('./bootstrap.min');
 // require('./bootstrap');
 
 /**

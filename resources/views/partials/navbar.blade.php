@@ -11,7 +11,7 @@
                 </li> --}}
                 @if (!Auth::guest())
                     <li class="nav-item">
-                        <a class="nav-link" href="/playlists">All Playlists</a>
+                        <a class="nav-link" href="/collections/playlists">Playlists</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/songs/find">Find a song</a>

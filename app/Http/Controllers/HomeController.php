@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Playlist;
+use App\User;
+
 class HomeController extends Controller
 {
     /**
@@ -33,6 +36,19 @@ class HomeController extends Controller
      */
     public function home()
     {
+        $playlists = Playlist::limit(3)
+                        ->latest()
+                        ->get();
+        return view('home', compact('playlists'));
+
+
+
+        // OLD:
         return view('home');
+    }
+
+    public function profile(User $user_id)
+    {
+
     }
 }

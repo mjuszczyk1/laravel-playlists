@@ -14,21 +14,39 @@
 // GET homepage
 Route::get('/', 'HomeController@home');
 
-// GET user playlists
-Route::get('/profile/playlists', 'ProfileController@index');
+/** CREATE
+ * 
+ */
+Route::post('/collections/playlists', 'PlaylistsController@store');// Create new playlist
+// There will be just a text box at the bottom of this page (which is the one that shows 
+// all owned (current user's) playlists), that should be submitted with some AJAX to this
+// route, and the playlist Name can show up on the page immediately.
 
-Route::get('/playlists', 'PlaylistsController@index');
+/** READ
+ *  Single
+ *  Owned
+ *  Others
+ */
+// ALL OWNED:
+Route::get('/collections/playlists', 'PlaylistsController@index');// Get your own playlists. If logged out, directs to login page.
+// SINGLE:
+Route::get('/profile/{user}/playlists/{playlist}', 'PlaylistsController@show');// GET specific playlist. If logged out, may show playlist if it's top 5 most recent
+// OTHERS:
+Route::get('/profile/{user_id}/', 'HomeController@profile');// If {user_id} matches current session, see account details. If logged out, view other person's playlists
 
-// Create playlists
-Route::get('/profile/playlists/create', 'PlaylistsController@create');
-Route::post('/profile/playlists/create', 'PlaylistsController@store');
+/** UPDATE
+ * 
+ */
+Route::post('/profile/{user_id}/playlists/{playlist_id}', 'PlaylistsController@update');
 
-// View playlists details
-Route::get('/profile/playlists/{playlist}', 'PlaylistsController@show');
+/** DELETE
+ * 
+ */
+Route::post('/profile/{user_id}/playlists/{playlist_id}', 'PlaylistsController@destroy');// Delete playlist
 
-// Add song to playlist - this is where we'll use the Spotify API eventually.
-Route::get('/profile/playlists/{playlist}/add-song', 'PlaylistsController@addSong');
+/** Add Songs
+ *
+ */
+Route::get('/profile/{user}/playlists/{plyalist}/search', 'PlaylistsController@search');// Search for songs
 
 Auth::routes();
-
-Route::get('/profile', 'HomeController@index');

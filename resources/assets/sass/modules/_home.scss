@@ -185,7 +185,7 @@ footer {
                 color: inherit;
                 background: none;
                 cursor: pointer;
-                padding: 25px 80px;
+                padding: 0;
                 display: inline-block;
                 margin: 15px 30px;
                 text-transform: uppercase;
@@ -211,6 +211,8 @@ footer {
                 overflow: hidden;
                 a {
                     color: $color_pirate_gold;
+                    display: block;
+                    padding: 25px 80px;
                 }
                 &:hover::after {
                     width: 90%;
