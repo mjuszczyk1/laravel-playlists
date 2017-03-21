@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Playlist;
+use App\Song;
 
 class User extends Authenticatable
 {
@@ -37,5 +38,10 @@ class User extends Authenticatable
     public function createPlaylist(Playlist $playlist)
     {
         $this->playlists()->save($playlist);
+    }
+
+    public function addSong(Song $song, Playlist $playlist)
+    {
+        
     }
 }

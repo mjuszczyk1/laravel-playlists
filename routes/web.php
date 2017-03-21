@@ -42,11 +42,13 @@ Route::post('/profile/{user_id}/playlists/{playlist_id}', 'PlaylistsController@u
 /** DELETE
  * 
  */
-Route::post('/profile/{user_id}/playlists/{playlist_id}', 'PlaylistsController@destroy');// Delete playlist
+Route::get('/profile/{user}/playlists/{playlist}/delete', 'PlaylistsController@delete');// Delete playlist
+Route::post('/profile/{user}/playlists/{playlist}/delete', 'PlaylistsController@destroy');// Delete playlist
 
 /** Add Songs
  *
  */
 Route::get('/profile/{user}/playlists/{plyalist}/search', 'PlaylistsController@search');// Search for songs
+Route::post('/profile/{user}/playlists/{playlist}/add', 'PlaylistsController@add');
 
 Auth::routes();
